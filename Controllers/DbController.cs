@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet.Controllers
 {
-    public class DbController : Controller
+    public class ApiController : Controller
     {
         private const string _DbName = "testdotnet";
         private const string _username = "admin";
@@ -15,7 +15,7 @@ namespace dotnet.Controllers
         private const string _DbUrl = "http://104.192.4.168:5984";
 
 
-        public DbController()
+        public ApiController()
         {
             
         }
@@ -28,6 +28,18 @@ namespace dotnet.Controllers
 
             return await AppUtilsServices.Get("/jeevehmarket/_all_docs");
         }
+
+        [HttpGet]
+        [Route("api/doc/{id?}")]
+        public async Task<string> Document(string id)
+        {
+            if(string.IsNullOrEmpty(id)){
+                return await AppUtilsServices.Get("/jeevehmarket/_all_docs");
+            }
+            return await AppUtilsServices.Get("/jeevehmarket/"+id);
+        }
+
+
 
 
     }
