@@ -14,11 +14,23 @@ public static class AppUtilsServices
     {
         using (HttpClient client = new HttpClient())
         {
-            client.DefaultRequestHeaders.Add("Accept", "application/json");
+            //client.DefaultRequestHeaders.Add("Accept", "application/json");
             string encoded = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes("admin:1CouchdbeBkhod"));
             client.DefaultRequestHeaders.Add("Authorization", encoded);
             var res = client.GetAsync("http://104.192.4.168:5984" + url).Result;
             return await res.Content.ReadAsStringAsync();
+        }
+    }
+
+    public static HttpResponseMessage GetAttachment(string url)
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Accept", "image/webp,*/*");
+            string encoded = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes("admin:1CouchdbeBkhod"));
+            client.DefaultRequestHeaders.Add("Authorization", encoded);
+            var res = client.GetAsync("http://104.192.4.168:5984" + url).Result;
+            return res;
         }
     }
 

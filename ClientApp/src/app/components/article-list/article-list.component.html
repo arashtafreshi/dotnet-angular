@@ -2,6 +2,6 @@
 <ul>
   <li *ngFor="let item of articles">
     {{item.value.title}}
-    <img src="{{GetImage(item)}}">
+    <img width="200px" *ngIf="hasImage(item)" src="{{getImage(item)}}">
   </li>
 </ul>

@@ -38,4 +38,16 @@ export class ArticleListComponent implements OnInit {
 
   }
 
+  hasImage(item:any){
+    debugger;
+    return item.value._attachments && Object.keys(item.value._attachments).length > 0;
+  }
+
+  getImage(item:any){
+    let url ='/api/attachments/' + item.id + '/' + Object.keys(item.value._attachments)[0]; 
+    debugger;
+    return url;
+  }
+
+
 }

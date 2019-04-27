@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -57,9 +58,9 @@ namespace dotnet.Controllers
 
         [HttpGet]
         [Route("api/attachments/{id}/{name}")]
-        public async Task<string> attachments(string id, string name)
+        public async Task<Stream> attachments(string id, string name)
         {
-            return await AppUtilsServices.Get("/jeevehmarket/" + id + @"/" + name);
+            return await AppUtilsServices.GetAttachment("/jeevehmarket/" + id + @"/" + name).Content.ReadAsStreamAsync();
         }
 
 
