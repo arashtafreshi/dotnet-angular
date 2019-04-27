@@ -17,7 +17,7 @@ namespace dotnet.Controllers
 
         public ApiController()
         {
-            
+
         }
 
 
@@ -33,13 +33,34 @@ namespace dotnet.Controllers
         [Route("api/doc/{id?}")]
         public async Task<string> Document(string id)
         {
-            if(string.IsNullOrEmpty(id)){
+            if (string.IsNullOrEmpty(id))
+            {
                 return await AppUtilsServices.Get("/jeevehmarket/_all_docs");
             }
-            return await AppUtilsServices.Get("/jeevehmarket/"+id);
+            return await AppUtilsServices.Get("/jeevehmarket/" + id);
         }
 
+        public async Task<string> GetAllDesigns()
+        {
+            return await AppUtilsServices.Get("/jeevehmarket/_design_docs");
+        }
 
+        public async Task<string> GetAllUsers()
+        {
+            return await AppUtilsServices.Get("/jeevehmarket/_design/user/_view/all");
+        }
+
+        public async Task<string> GetAllArticles()
+        {
+            return await AppUtilsServices.Get("/jeevehmarket/_design/article/_view/all");
+        }
+
+        [HttpGet]
+        [Route("api/attachments/{id}/{name}")]
+        public async Task<string> attachments(string id, string name)
+        {
+            return await AppUtilsServices.Get("/jeevehmarket/" + id + @"/" + name);
+        }
 
 
     }

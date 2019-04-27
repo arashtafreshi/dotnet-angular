@@ -41,6 +41,10 @@ export class LoginService {
     return this.httpClient.get(_dbUrl + '/api/db/doc', _headerOptions).toPromise();
   }
 
+  GetAllUsers(): Promise<any> {
+    return this.httpClient.get( '/api/GetAllUsers').toPromise();
+  }
+
 
 
   // end of class

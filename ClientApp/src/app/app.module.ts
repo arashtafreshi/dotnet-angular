@@ -6,11 +6,15 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { ArticleListComponent } from './components/article-list/article-list.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ArticleListComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
