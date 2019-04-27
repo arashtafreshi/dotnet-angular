@@ -43,10 +43,18 @@ export class ArticleListComponent implements OnInit {
     return item.value._attachments && Object.keys(item.value._attachments).length > 0;
   }
 
-  getImage(item:any){
-    let url ='/api/attachments/' + item.id + '/' + Object.keys(item.value._attachments)[0]; 
-    debugger;
-    return url;
+  getImages(item:any){
+    let images:any[] = [];
+    Object.keys(item.value._attachments).forEach(name => {
+      images.push('/api/attachments/' + item.id + '/' + name)
+    });
+    //let url ='/api/attachments/' + item.id + '/' + Object.keys(item.value._attachments)[0]; 
+    //debugger;
+    return images;
+  }
+
+  GetImagesName(item:any){
+    return Object.keys(item.value._attachments);
   }
 
 
