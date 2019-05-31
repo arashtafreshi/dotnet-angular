@@ -1,0 +1,8 @@
+
+<div *ngIf="product !== null" [ngClass]="['product-thumbnail-wrapper']">
+  <div>
+    <img [src]="image" height="150px">
+  </div>
+  <div>{{product.value.title}}</div>
+  <h6>{{product.value.dateCreated | date}}</h6>
+</div>

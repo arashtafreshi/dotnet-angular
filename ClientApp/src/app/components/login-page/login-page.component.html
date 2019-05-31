@@ -3,3 +3,29 @@
   <button (click)="login()"> Login</button>
   <button (click)="docs()"> Login</button>
 </p>
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h4>Email</h4></td>
+      <td>
+        <input type="email" [ngClass]="['form-control']">
+      </td>
+    </tr>
+    <tr>
+        <td><h4>Password</h4></td>
+        <td>
+          <input type="password" [ngClass]="['form-control']">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button [ngClass]="['btn btn-success']" style="width: 100%;">Login</button>
+        </td>
+      </tr>
+  </tbody>
+</table>

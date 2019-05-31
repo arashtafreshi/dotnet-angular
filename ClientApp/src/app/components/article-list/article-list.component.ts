@@ -40,7 +40,6 @@ export class ArticleListComponent implements OnInit {
   }
 
   hasImage(item:any){
-    debugger;
     return item.value._attachments && Object.keys(item.value._attachments).length > 0;
   }
 
@@ -60,6 +59,12 @@ export class ArticleListComponent implements OnInit {
 
   setSelectedDocument(item:any){
     this.selectedDocument = item;
+  }
+
+  GetFirstImage(item:any){
+    let name = this.GetImagesName(item);
+    let url = `/api/Attachments/`+item.id+`/`+(name.length>0?name[0]:"");
+    return url;
   }
 
 }

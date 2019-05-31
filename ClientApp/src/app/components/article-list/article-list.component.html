@@ -1,6 +1,16 @@
-<h3>Articles</h3>
-<button [ngClass]="['']">New</button>
-<table [ngClass]="['table table-condenced table-bordered']">
+<h3>Products</h3>
+
+<div [ngClass]="['row']">
+  <div [ngClass]="['col-md-3']" *ngFor="let item of articles">
+    <a href="#"> <app-product-thumbnail [product]="item" [image]="GetFirstImage(item)"></app-product-thumbnail></a>
+  </div>
+
+</div>
+
+
+
+
+<table *ngIf="false" [ngClass]="['table table-condenced table-bordered']">
   <thead>
     <th>Title</th>
     <th>Attachments</th>
