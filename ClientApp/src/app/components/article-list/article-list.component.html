@@ -1,5 +1,5 @@
 <h3>Articles</h3>
-<button [ngClass]="['btn btn-primary']">New</button>
+<button [ngClass]="['']">New</button>
 <table [ngClass]="['table table-condenced table-bordered']">
   <thead>
     <th>Title</th>
@@ -12,16 +12,14 @@
       <td>
         <ul *ngIf="hasImage(item)">
           <li *ngFor="let imName of GetImagesName(item)">
-            <a href="">{{imName}}</a>
-          </li>
-          <li>
-            <button>Add more</button>
+            <a href="/api/Attachments/{{item.id}}/{{imName}}">{{imName}}</a>
           </li>
         </ul>
       </td>
       <td>
-        <button [ngClass]="['btn btn-primary']" >Edit</button>
-        <button [ngClass]="['btn btn-danger']" >Delete</button>
+        <button [ngClass]="['']" >View</button>
+        <button [ngClass]="['']" (click)="setSelectedDocument(item)">Edit</button>
+        <button [ngClass]="['']" >Delete</button>
       </td>
     </tr>
   </tbody>
@@ -37,3 +35,5 @@
     
   </li>
 </ul> -->
+
+<app-article-edit [document]="selectedDocument"></app-article-edit>

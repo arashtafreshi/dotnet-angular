@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ArticleListComponent implements OnInit {
   articles: any;
+  selectedDocument:any = null;
   constructor(private api: ApiService) { }
 
   ngOnInit() {
@@ -57,5 +58,8 @@ export class ArticleListComponent implements OnInit {
     return Object.keys(item.value._attachments);
   }
 
+  setSelectedDocument(item:any){
+    this.selectedDocument = item;
+  }
 
 }
