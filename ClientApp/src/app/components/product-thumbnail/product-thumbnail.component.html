@@ -1,8 +1,25 @@
-
 <div *ngIf="product !== null" [ngClass]="['product-thumbnail-wrapper']">
-  <div>
-    <img [src]="image" height="150px">
+  <div [ngClass]="['image-style']" [style.backgroundImage]="'url('+ image +')'">
+    <!-- <img [src]="image" > -->
   </div>
-  <div>{{product.value.title}}</div>
-  <h6>{{product.value.dateCreated | date}}</h6>
+  <div [ngClass]="['below-image']">
+      <table>
+          <tbody>
+            <tr>
+              <td>{{product.value.title}}</td>
+              <td><button><span [ngClass]="['fa fa-star']"></span></button></td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>$19.99</h3>
+                  </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <button (click)="decreaseQuantity()"><span [ngClass]="['fa fa-minus']"></span></button>
+        <input type="number" min="0" max="99" [(ngModel)]="quantity">
+        <button (click)="increaseQuantity()"><span [ngClass]="['fa fa-plus']"></span></button>
+  </div>
+  
 </div>

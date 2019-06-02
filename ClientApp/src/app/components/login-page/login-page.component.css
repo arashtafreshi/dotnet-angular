@@ -2,3 +2,11 @@ tr td:first-child{
     text-align: right;
     padding: 10px;
 }
+
+tr td:nth-child(2){
+    min-width: 300px;
+}
+
+table{
+    margin-top: 10%;
+}

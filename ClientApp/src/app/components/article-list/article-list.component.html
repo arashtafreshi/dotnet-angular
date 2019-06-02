@@ -1,12 +1,16 @@
 <h3>Products</h3>
 
-<div [ngClass]="['row']">
-  <div [ngClass]="['col-md-3']" *ngFor="let item of articles">
-    <a href="#"> <app-product-thumbnail [product]="item" [image]="GetFirstImage(item)"></app-product-thumbnail></a>
-  </div>
-
+<div [ngClass]="['banner']">
+  Big Sale <span [ngClass]="['fa fa-tag']"></span>
 </div>
+<div [ngClass]="['container']">
+  <div [ngClass]="['row']">
+    <div [ngClass]="['col-md-3']" *ngFor="let item of articles">
+      <app-product-thumbnail [product]="item" [image]="GetFirstImage(item)"></app-product-thumbnail>
+    </div>
 
+  </div>
+</div>
 
 
 
@@ -27,9 +31,9 @@
         </ul>
       </td>
       <td>
-        <button [ngClass]="['']" >View</button>
+        <button [ngClass]="['']">View</button>
         <button [ngClass]="['']" (click)="setSelectedDocument(item)">Edit</button>
-        <button [ngClass]="['']" >Delete</button>
+        <button [ngClass]="['']">Delete</button>
       </td>
     </tr>
   </tbody>

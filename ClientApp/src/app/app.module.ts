@@ -10,6 +10,7 @@ import { ArticleListComponent } from './components/article-list/article-list.com
 import { UserListComponent } from './components/user-list/user-list.component';
 import { ArticleEditComponent } from './components/article-edit/article-edit.component';
 import { ProductThumbnailComponent } from './components/product-thumbnail/product-thumbnail.component';
+import { CartMainComponent } from './components/cart-main/cart-main.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductThumbnailComponent } from './components/product-thumbnail/produc
     ArticleListComponent,
     UserListComponent,
     ArticleEditComponent,
-    ProductThumbnailComponent
+    ProductThumbnailComponent,
+    CartMainComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +31,7 @@ import { ProductThumbnailComponent } from './components/product-thumbnail/produc
       { path: 'login', component: LoginPageComponent },
       { path: 'users', component: UserListComponent },
       { path: 'article', component: ArticleListComponent },
+      { path: 'cart', component: CartMainComponent }
     ])
   ],
   providers: [],

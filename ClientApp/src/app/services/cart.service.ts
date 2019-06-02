@@ -20,5 +20,13 @@ export class CartService {
     return this.items;
   }
 
+  removeFromCart(product) {
+
+    let index = this.items.indexOf(product, 0);
+    debugger;
+    if (index > -1) {
+      this.items.splice(index, 1);
+    }
+  }
 
 }

@@ -1,0 +1,40 @@
+input{
+    text-align: center;
+}
+
+table{
+    width: 100%;
+}
+
+tr:nth-child(2) td:nth-child(2){
+    /* text-align: right; */
+}
+
+.image-style{
+    height: 150px;
+    background-size: cover;
+}
+
+.fa-star{
+    color: darkorange;
+}
+.product-thumbnail-wrapper{
+    padding: 5px;
+    height: 100%
+}
+
+.product-thumbnail-wrapper:hover{
+    background-color: gainsboro;
+    height: 100%;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.below-image{
+    bottom: 0;
+}

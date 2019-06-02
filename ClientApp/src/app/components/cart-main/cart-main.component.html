@@ -1,0 +1,51 @@
+<p>
+  cart-main works!
+</p>
+<div [ngClass]="['row']">
+  <div [ngClass]="['col-md-8']">
+    <ul>
+      <li *ngFor="let item of items">
+        <div>
+          {{item.value.title}}
+        </div>
+        <div>
+          $12.99 x 2
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div [ngClass]="['col-md-4']">
+      <table>
+          <tbody>
+            <tr>
+              <td>Total: </td>
+              <td>$239.87</td>
+            </tr>
+            <tr>
+                <td>Tax: </td>
+                <td>$9.22</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><hr></td>
+              </tr>
+              <tr>
+                  <td>Checkout :</td>
+                  <td>$267.87</td>
+                </tr>
+          </tbody>
+        </table>
+  </div>
+</div>
+
+
+<form #checkout="ngForm" (ngSubmit)="onSubmit(checkout)" class="checkout">
+    <div class="form-row">
+      <label for="card-info">Card Info</label>
+      <div id="card-info" #cardInfo></div>
+  
+      <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
+    </div>
+  
+    <button type="submit">Pay $777</button>
+  </form>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>dotnet</title>
+  <title>Jeeveh</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,5 +10,11 @@
 </head>
 <body>
   <app-root>Loading...</app-root>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script type="text/javascript">
+    var stripe = Stripe('pk_test_XXXXXXXXXXXXXXXXX'); // use your test publishable key
+    var elements = stripe.elements();
+  </script>
 </body>
 </html>
