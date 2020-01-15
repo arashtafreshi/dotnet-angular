@@ -24,6 +24,17 @@ export class PaymentService {
         label: 'Demo total',
         amount: 1000,
       },
+      requestShipping: true,
+      shippingOptions: [
+        // The first shipping option in this list appears as the default
+        // option in the browser payment interface.
+        {
+          id: 'free-shipping',
+          label: 'Free shipping',
+          detail: 'Arrives in 5 to 7 days',
+          amount: 0,
+        },
+      ],
       requestPayerName: true,
       requestPayerEmail: true,
     });

@@ -10,37 +10,43 @@
     <tr>
       <td>ID</td>
       <td>
-        <input type="text" [ngClass]="['form-control']" disabled [value]="document.value._id">
+        <input type="text" [ngClass]="['form-control']" disabled [(ngModel)]="document._id">
       </td>
     </tr>
     <tr>
       <td>Type</td>
       <td>
-        <input type="text" [ngClass]="['form-control']" [value]="document.value.type">
+        <input type="text" [ngClass]="['form-control']" [(ngModel)]="document.type">
       </td>
     </tr>
     <tr>
       <td>Title</td>
       <td>
-        <input type="text" [ngClass]="['form-control']" [value]="document.value.title">
+        <input type="text" [ngClass]="['form-control']" [(ngModel)]="document.title">
+      </td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td>
+        <input type="text" [ngClass]="['form-control']" [(ngModel)]="document.price">
       </td>
     </tr>
     <tr>
       <td>Header</td>
       <td>
-        <input type="text" [ngClass]="['form-control']" [value]="document.value.header">
+        <input type="text" [ngClass]="['form-control']" [(ngModel)]="document.header">
       </td>
     </tr>
     <tr>
       <td>Content</td>
       <td>
-        <textarea rows="4">{{document.value.content}}</textarea>
+        <textarea rows="4">{{document.content}}</textarea>
       </td>
     </tr>
     <tr>
       <td>Authur</td>
       <td>
-        <input type="text" [ngClass]="['form-control']" [value]="document.value.author">
+        <input type="text" [ngClass]="['form-control']" [(ngModel)]="document.author">
       </td>
     </tr>
     <tr>
@@ -52,11 +58,33 @@
     <tr>
       <td>Status</td>
       <td>
-        <select>
-          <option>Active</option>
-          <option>Inactive</option>
+        <select #selectedStatus (change)="document.active = selectedStatus.value">
+          <option [value]="true" [selected]="document.active">Active</option>
+          <option [value]="false" [selected]="!document.active">Inactive</option>
         </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Images</td>
+      <td>
+          <select #selectedImage (change)="selectedOptionImage = selectedImage.value">
+            <option *ngFor="let n of document.imagesName" [value]="n" [selected]="selectedOptionImage == n">
+              {{n}}
+            </option>
+          </select>
+          <div>
+              <img src="/api/Attachments/{{document._id}}/{{selectedOptionImage}}" width="200" height="150">
+              <!-- <li *ngFor="let src of FirstImage">
+                <img src="{{src}}" width="200" height="150">
+                <button (click)="deleteImage(src)" [ngClass]="['btn btn-danger']">
+                  X
+                </button>
+              </li> -->
+              <input id="fileUpload" type="file" (change)="handleFileInput($event.target.files)">
+          </div>
+          
       </td>
     </tr>
   </tbody>
 </table>
+<button (click)="update()">Update</button>

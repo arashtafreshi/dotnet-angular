@@ -11,7 +11,7 @@
             </tr>
             <tr>
                 <td>
-                    <h3>$19.99</h3>
+                    <h3>${{product.value.price}}</h3>
                   </td>
               <td></td>
             </tr>
@@ -20,6 +20,9 @@
         <button (click)="decreaseQuantity()"><span [ngClass]="['fa fa-minus']"></span></button>
         <input type="number" min="0" max="99" [(ngModel)]="quantity">
         <button (click)="increaseQuantity()"><span [ngClass]="['fa fa-plus']"></span></button>
+        <!-- <a href="article/edit/{{product.id}}"><span [ngClass]="['fa fa-pen']"></span></a> -->
+        <button routerLink="/article/edit/{{product.id}}"><span [ngClass]="['fa fa-pen']"></span></button>
+        <button routerLink="/article/edit/{{product.id}}"><span [ngClass]="['fa fa-eye']"></span></button>
   </div>
   
 </div>

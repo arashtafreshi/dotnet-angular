@@ -3,7 +3,7 @@
     <button routerLink="/login"><span [ngClass]="['fa fa-sign-in-alt']"></span></button>
     <button routerLink="/article"><span [ngClass]="['fa fa-store']"></span></button>
     <button routerLink="/cart">
-        <span [ngClass]="['badge badge-primary']">{{itemsInCart.length}}</span>
+        <span [ngClass]="['badge badge-primary']">{{total}}</span>
       <span [ngClass]="['fa fa-shopping-cart']"></span>
     </button>
     <button routerLink="/article"><span [ngClass]="['fa fa-star']"></span></button>

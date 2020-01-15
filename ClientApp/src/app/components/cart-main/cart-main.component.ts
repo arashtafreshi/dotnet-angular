@@ -16,10 +16,15 @@ export class CartMainComponent implements OnInit {
   error: string;
 
   items:any = [];
+  itemsDic = {};
+  itemsId = [];
+
   constructor(private cartService:CartService, private paymentService:PaymentService, private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.items = this.cartService.getItems();
+    this.itemsDic = this.cartService.itemDic;
+    this.itemsId = Object.keys(this.itemsDic);
   }
 
   ngAfterViewInit() {
@@ -64,6 +69,14 @@ export class CartMainComponent implements OnInit {
       console.log('Success!', token);
       // ...send the token to the your backend to process the charge
     }
+  }
+
+  get total(){
+    let t = 0;
+    Object.values(this.itemsDic).forEach(item => {
+      t += (item["item"]["value"]["price"] * item["count"]);
+    });
+    return t;
   }
   
 

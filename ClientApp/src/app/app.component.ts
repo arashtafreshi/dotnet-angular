@@ -12,6 +12,15 @@ export class AppComponent {
 
   constructor(private cartService:CartService){
     this.itemsInCart = cartService.items;
+
+  }
+
+  get total(){
+    let t = 0;
+    Object.values(this.cartService.itemDic).forEach(item => {
+      t += item["count"];
+    });
+    return t;
   }
 
 }

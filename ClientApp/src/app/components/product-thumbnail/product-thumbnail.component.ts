@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-product-thumbnail',
@@ -11,7 +12,9 @@ export class ProductThumbnailComponent implements OnInit {
   @Input() image:any;
   quantity:number = 0;
 
-  constructor(private cartService:CartService) { }
+  constructor(
+    private router: Router,
+    private cartService:CartService) { }
 
   ngOnInit() {
     this.quantity = this.getProductQuantity();
@@ -33,5 +36,8 @@ export class ProductThumbnailComponent implements OnInit {
     return this.cartService.getItems().filter(p=>p.id === this.product.id).length;
   }
 
+  goToEdit(){
+    this.router.navigate(['/article/edit/' + this.product.id]);
+  }
 
 }

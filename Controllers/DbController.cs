@@ -63,6 +63,14 @@ namespace dotnet.Controllers
             return await AppUtilsServices.GetAttachment("/jeevehmarket/" + id + @"/" + name).Content.ReadAsStreamAsync();
         }
 
+        [HttpPut]
+        [Route("api/doc/{id?}")]
+        public async Task<string> SaveDocument(string id, [FromBody] Models.Document doc)
+        {
+            EmailService es = new EmailService();
+            es.SendEmail();
+            return await AppUtilsServices.Put("/jeevehmarket/" + id, doc);
+        }
 
     }
 }

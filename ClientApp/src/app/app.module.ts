@@ -30,7 +30,10 @@ import { CartMainComponent } from './components/cart-main/cart-main.component';
       { path: '', component: AppComponent },
       { path: 'login', component: LoginPageComponent },
       { path: 'users', component: UserListComponent },
-      { path: 'article', component: ArticleListComponent },
+      { path: 'article', children:[
+        { path: 'edit/:id', component: ArticleEditComponent },
+        { path: '', component: ArticleListComponent }
+      ]},
       { path: 'cart', component: CartMainComponent }
     ])
   ],

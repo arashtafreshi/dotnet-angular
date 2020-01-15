@@ -4,13 +4,14 @@
 <div [ngClass]="['row']">
   <div [ngClass]="['col-md-8']">
     <ul>
-      <li *ngFor="let item of items">
+      <li *ngFor="let id of itemsId">
         <div>
-          {{item.value.title}}
+          {{itemsDic[id].item.value.title}}
         </div>
         <div>
-          $12.99 x 2
+          ${{itemsDic[id].item.value.price}} x {{itemsDic[id].count}}
         </div>
+        <hr>
       </li>
     </ul>
   </div>
@@ -19,7 +20,7 @@
           <tbody>
             <tr>
               <td>Total: </td>
-              <td>$239.87</td>
+              <td>${{total}}</td>
             </tr>
             <tr>
                 <td>Tax: </td>
@@ -31,7 +32,7 @@
               </tr>
               <tr>
                   <td>Checkout :</td>
-                  <td>$267.87</td>
+                  <td>${{total}}</td>
                 </tr>
           </tbody>
         </table>
@@ -47,5 +48,5 @@
       <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
     </div>
   
-    <button type="submit">Pay $777</button>
+    <button type="submit">Pay ${{total}}</button>
   </form>
